@@ -1,19 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClayHero3D } from "@/components/ClayHero3D";
 import { TiltCard } from "@/components/TiltCard";
-import { Github, Linkedin, Mail, ArrowRight, Code2, Sparkles, Rocket, Zap } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, Code2, Sparkles, Rocket, Zap, User, Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Rivers — Full-stack Developer Portfolio" },
+      { title: "Nakhun — Developer Portfolio" },
       {
         name: "description",
-        content:
-          "Full-stack developer crafting playful, performant web experiences. Selected projects, skills, and a way to get in touch.",
+        content: "Nakhun — developer building futuristic web experiences. Skills in Python, Lua, and JavaScript.",
       },
-      { property: "og:title", content: "Alex Rivers — Full-stack Developer" },
-      { property: "og:description", content: "Playful, performant web experiences." },
+      { property: "og:title", content: "Nakhun — Developer Portfolio" },
+      { property: "og:description", content: "Futuristic web experiences by Nakhun." },
     ],
   }),
   component: Index,
@@ -46,23 +45,35 @@ const projects = [
   },
 ];
 
-const skills = [
+const stack = [
   { icon: Code2, label: "Frontend", items: ["React", "TypeScript", "Tailwind", "Three.js"] },
   { icon: Rocket, label: "Backend", items: ["Node", "Postgres", "Edge functions", "Redis"] },
   { icon: Sparkles, label: "Design", items: ["Figma", "Motion", "Design systems", "3D"] },
   { icon: Zap, label: "Tooling", items: ["Vite", "Bun", "Docker", "GitHub Actions"] },
 ];
 
+const languages = [
+  { name: "Python", level: 92, color: "oklch(0.65 0.2 295)" },
+  { name: "Lua", level: 85, color: "oklch(0.7 0.2 320)" },
+  { name: "JavaScript", level: 88, color: "oklch(0.7 0.18 270)" },
+];
+
 function Index() {
   return (
     <main className="relative overflow-x-hidden">
+      {/* AI NOTICE */}
+      <div className="flex items-center justify-center gap-2 bg-primary/10 px-4 py-2 text-center text-xs font-medium text-primary backdrop-blur">
+        <Bot className="h-3.5 w-3.5" />
+        Heads up — this website is AI generated.
+      </div>
+
       {/* NAV */}
       <header className="sticky top-4 z-40 mx-auto mt-4 flex max-w-5xl items-center justify-between rounded-full clay-sm px-5 py-3 backdrop-blur">
         <a href="#top" className="flex items-center gap-2 font-bold">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.15)]">
-            A
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.15)]">
+            N
           </span>
-          <span className="hidden sm:inline">Alex Rivers</span>
+          <span className="hidden sm:inline">Nakhun</span>
         </a>
         <nav className="flex items-center gap-1 text-sm font-medium">
           <a href="#work" className="rounded-full px-3 py-1.5 hover:bg-muted">Work</a>
@@ -81,15 +92,15 @@ function Index() {
       <section id="top" className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col items-center justify-center px-6 pt-12 text-center">
         <ClayHero3D />
         <span className="mb-6 inline-flex items-center gap-2 rounded-full clay-sm px-4 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground animate-fade-up">
-          <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_var(--clay-mint)]" />
+          <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_var(--clay-pink)]" />
           Available for new projects
         </span>
         <h1 className="text-balance text-5xl font-extrabold leading-[1.05] sm:text-7xl md:text-8xl animate-fade-up [animation-delay:80ms]">
-          I build <span className="text-gradient">playful</span>
+          I build <span className="text-gradient">futuristic</span>
           <br /> web things that <span className="text-gradient">scale</span>.
         </h1>
         <p className="mt-6 max-w-xl text-balance text-lg text-muted-foreground animate-fade-up [animation-delay:160ms]">
-          Hey, I'm Alex — a full-stack developer obsessed with delightful UI,
+          Hey, I'm Nakhun — a developer obsessed with delightful UI,
           performance, and shipping ideas that actually feel alive.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3 animate-fade-up [animation-delay:240ms]">
@@ -122,17 +133,19 @@ function Index() {
           {projects.map((p, i) => (
             <TiltCard key={p.title} className="clay group cursor-pointer p-8 animate-fade-up" intensity={8}>
               <div
-                className="mb-6 flex h-44 items-center justify-center rounded-2xl"
+                className="mb-6 grid h-44 place-items-center rounded-2xl"
                 style={{
                   background: `linear-gradient(145deg, color-mix(in oklch, ${p.color} 80%, white), ${p.color})`,
-                  boxShadow:
-                    "inset 4px 4px 10px rgba(0,0,0,0.12), inset -4px -4px 10px rgba(255,255,255,0.5)",
+                  boxShadow: "inset 4px 4px 10px rgba(0,0,0,0.12), inset -4px -4px 10px rgba(255,255,255,0.5)",
                 }}
               >
+                {/* Futuristic floating square */}
                 <div
-                  className="h-20 w-20 animate-blob bg-white/60"
-                  style={{ animationDelay: `${i * 0.7}s` }}
-                />
+                  className="relative h-20 w-20 rotate-12 animate-float bg-white/70 shadow-[inset_-4px_-4px_8px_rgba(0,0,0,0.15),inset_4px_4px_8px_rgba(255,255,255,0.6),0_8px_24px_rgba(124,58,237,0.35)]"
+                  style={{ animationDelay: `${i * 0.7}s`, borderRadius: "0.6rem" }}
+                >
+                  <div className="absolute inset-2 rounded-md border border-primary/40" />
+                </div>
               </div>
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-2xl font-bold">{p.title}</h3>
@@ -153,24 +166,64 @@ function Index() {
         </div>
       </section>
 
-      {/* SKILLS */}
+      {/* SKILLS — image + language progress bars */}
       <section id="skills" className="mx-auto max-w-6xl px-6 py-28">
         <div className="mb-14 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Toolkit</p>
-          <h2 className="text-4xl font-extrabold sm:text-5xl">Stack I reach for</h2>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Skills</p>
+          <h2 className="text-4xl font-extrabold sm:text-5xl">What I work with</h2>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {skills.map(({ icon: Icon, label, items }, i) => (
+
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.3fr]">
+          {/* Image placeholder */}
+          <div className="clay mx-auto aspect-square w-full max-w-sm p-4">
+            <div className="grid h-full w-full place-items-center rounded-3xl border-2 border-dashed border-primary/40 bg-gradient-to-br from-primary/10 to-accent/10 text-center">
+              <div className="px-6">
+                <div className="mx-auto mb-3 grid h-14 w-14 place-items-center rounded-2xl bg-primary/20 text-primary">
+                  <User className="h-7 w-7" />
+                </div>
+                <p className="font-bold">Your photo here</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Replace this placeholder with an image of you (drop one in <code>src/assets</code> and import it).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Language progress bars */}
+          <div className="clay p-8 sm:p-10">
+            <h3 className="mb-1 text-2xl font-bold">Languages</h3>
+            <p className="mb-8 text-sm text-muted-foreground">My current proficiency.</p>
+            <ul className="space-y-7">
+              {languages.map((lang) => (
+                <li key={lang.name}>
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="font-semibold">{lang.name}</span>
+                    <span className="text-sm font-bold text-primary">{lang.level}%</span>
+                  </div>
+                  <div className="clay-pressed h-4 overflow-hidden rounded-full bg-muted/60">
+                    <div
+                      className="h-full rounded-full transition-all duration-700"
+                      style={{
+                        width: `${lang.level}%`,
+                        background: `linear-gradient(90deg, ${lang.color}, var(--primary))`,
+                        boxShadow: `0 0 12px ${lang.color}, inset 0 -2px 4px rgba(0,0,0,0.15), inset 0 2px 4px rgba(255,255,255,0.4)`,
+                      }}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Toolkit grid (kept) */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {stack.map(({ icon: Icon, label, items }, i) => (
             <div key={label} className="clay-sm p-6 transition hover:-translate-y-1">
               <div
-                className="mb-5 grid h-14 w-14 place-items-center rounded-2xl text-primary-foreground"
+                className="mb-5 grid h-14 w-14 place-items-center rounded-2xl"
                 style={{
-                  background: [
-                    "var(--clay-pink)",
-                    "var(--clay-mint)",
-                    "var(--clay-lavender)",
-                    "var(--clay-butter)",
-                  ][i],
+                  background: ["var(--clay-pink)", "var(--clay-mint)", "var(--clay-lavender)", "var(--clay-butter)"][i],
                   boxShadow: "inset -3px -3px 6px rgba(0,0,0,0.15), inset 3px 3px 6px rgba(255,255,255,0.5)",
                 }}
               >
@@ -190,22 +243,22 @@ function Index() {
       {/* ABOUT */}
       <section id="about" className="mx-auto max-w-5xl px-6 py-28">
         <div className="clay relative overflow-hidden p-10 sm:p-16">
-          <div className="absolute -right-10 -top-10 h-48 w-48 animate-float rounded-full" style={{ background: "var(--clay-peach)", boxShadow: "inset -10px -10px 30px rgba(0,0,0,0.15)" }} />
-          <div className="absolute -bottom-12 -left-8 h-40 w-40 animate-float-slow rounded-full" style={{ background: "var(--clay-sky)", boxShadow: "inset -10px -10px 30px rgba(0,0,0,0.15)" }} />
+          <div className="absolute -right-10 -top-10 h-48 w-48 rotate-12 animate-float" style={{ background: "var(--clay-peach)", borderRadius: "1.5rem", boxShadow: "inset -10px -10px 30px rgba(0,0,0,0.15)" }} />
+          <div className="absolute -bottom-12 -left-8 h-40 w-40 -rotate-6 animate-float-slow" style={{ background: "var(--clay-sky)", borderRadius: "1.5rem", boxShadow: "inset -10px -10px 30px rgba(0,0,0,0.15)" }} />
           <div className="relative">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">About</p>
-            <h2 className="mb-6 text-4xl font-extrabold sm:text-5xl">Hi, I'm Alex 👋</h2>
+            <h2 className="mb-6 text-4xl font-extrabold sm:text-5xl">Hi, I'm Nakhun 👋</h2>
             <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Six years in, I still get a kick out of turning fuzzy ideas into things people
-              actually use. I've shipped products at startups and an agency, led small frontend
-              teams, and contributed to open-source UI tools. Outside the editor you'll find me
-              sketching, climbing, or losing chess games online.
+              I love turning fuzzy ideas into things people actually use. I build with
+              Python, Lua and JavaScript, ship side projects on the regular, and care a lot
+              about how interfaces feel. Outside the editor you'll find me sketching,
+              gaming, or breaking and fixing my own setups.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                { k: "6+", v: "Years building" },
-                { k: "40+", v: "Projects shipped" },
-                { k: "3k+", v: "GitHub stars" },
+                { k: "3", v: "Core languages" },
+                { k: "20+", v: "Projects shipped" },
+                { k: "∞", v: "Ideas in queue" },
               ].map((s) => (
                 <div key={s.v} className="clay-sm p-5 text-center">
                   <div className="text-3xl font-extrabold text-gradient">{s.k}</div>
@@ -222,19 +275,19 @@ function Index() {
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Let's talk</p>
         <h2 className="text-4xl font-extrabold sm:text-6xl">Have an idea? <span className="text-gradient">Let's build it.</span></h2>
         <p className="mt-5 text-lg text-muted-foreground">
-          I'm taking on a couple of new projects this quarter. Drop a line and tell me what you're cooking.
+          I'm taking on a couple of new projects. Drop a line and tell me what you're cooking.
         </p>
         <a
-          href="mailto:hello@alexrivers.dev"
+          href="mailto:nakhunxu@gmail.com"
           className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-5 text-lg font-semibold text-primary-foreground shadow-[var(--shadow-glow),inset_-3px_-3px_6px_rgba(0,0,0,0.2),inset_3px_3px_6px_rgba(255,255,255,0.35)] transition-transform hover:scale-105"
         >
-          <Mail className="h-5 w-5" /> hello@alexrivers.dev
+          <Mail className="h-5 w-5" /> nakhunxu@gmail.com
         </a>
         <div className="mt-10 flex items-center justify-center gap-4">
           {[
             { Icon: Github, href: "https://github.com", label: "GitHub" },
             { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { Icon: Mail, href: "mailto:hello@alexrivers.dev", label: "Email" },
+            { Icon: Mail, href: "mailto:nakhunxu@gmail.com", label: "Email" },
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
@@ -249,7 +302,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border/60 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Alex Rivers · Crafted with clay & code.
+        © {new Date().getFullYear()} Nakhun · This website is AI generated.
       </footer>
     </main>
   );
