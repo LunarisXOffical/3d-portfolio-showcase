@@ -40,22 +40,29 @@ export function ClayHero3D() {
     const clayMat = (color: number) =>
       new THREE.MeshPhysicalMaterial({
         color,
-        roughness: 0.55,
-        metalness: 0,
-        clearcoat: 0.4,
-        clearcoatRoughness: 0.6,
-        sheen: 0.5,
-        sheenColor: new THREE.Color(0xffffff),
+        roughness: 0.3,
+        metalness: 0.4,
+        clearcoat: 0.8,
+        clearcoatRoughness: 0.2,
+        emissive: new THREE.Color(color).multiplyScalar(0.15),
       });
 
     type Shape = { mesh: THREE.Mesh; speed: number; offset: number; axis: THREE.Vector3 };
     const shapes: Shape[] = [];
+
+    const makeBox = (size: number) => new THREE.BoxGeometry(size, size, size, 2, 2, 2);
 
     const add = (geo: THREE.BufferGeometry, color: number, pos: [number, number, number], scale = 1) => {
       const mesh = new THREE.Mesh(geo, clayMat(color));
       mesh.position.set(...pos);
       mesh.scale.setScalar(scale);
       scene.add(mesh);
+      // Wireframe overlay for futuristic vibe
+      const wire = new THREE.LineSegments(
+        new THREE.EdgesGeometry(geo),
+        new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.35 })
+      );
+      mesh.add(wire);
       shapes.push({
         mesh,
         speed: 0.3 + Math.random() * 0.4,
@@ -64,12 +71,12 @@ export function ClayHero3D() {
       });
     };
 
-    add(new THREE.IcosahedronGeometry(1.1, 1), 0xffb3c1, [-2.6, 0.8, 0], 1);
-    add(new THREE.TorusKnotGeometry(0.7, 0.28, 120, 16), 0xb6e0c2, [2.6, -0.4, 0.5], 1);
-    add(new THREE.SphereGeometry(0.85, 48, 48), 0xc9b8ff, [0.2, 1.6, -1], 1);
-    add(new THREE.TorusGeometry(0.7, 0.28, 24, 80), 0xfcd6a4, [-1.6, -1.4, 0.8], 1);
-    add(new THREE.OctahedronGeometry(0.8, 0), 0xa6d0ff, [2.2, 1.4, -0.5], 1);
-    add(new THREE.DodecahedronGeometry(0.55, 0), 0xffe29a, [-0.6, -1.6, 1.2], 1);
+    add(makeBox(1.5), 0xa855f7, [-2.6, 0.8, 0]);
+    add(makeBox(1.2), 0xc084fc, [2.6, -0.4, 0.5]);
+    add(makeBox(1.4), 0x9333ea, [0.2, 1.6, -1]);
+    add(makeBox(1.1), 0xd946ef, [-1.6, -1.4, 0.8]);
+    add(makeBox(1.3), 0x7c3aed, [2.2, 1.4, -0.5]);
+    add(makeBox(0.9), 0xe879f9, [-0.6, -1.6, 1.2]);
 
     // Mouse parallax
     const target = { x: 0, y: 0 };
