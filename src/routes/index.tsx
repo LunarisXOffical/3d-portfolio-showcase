@@ -216,7 +216,7 @@ function Index() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
                 { k: "3", v: "Core languages" },
-                { k: "20+", v: "Projects shipped" },
+                { k: "3", v: "Projects completed" },
                 { k: "∞", v: "Ideas in queue" },
               ].map((s) => (
                 <div key={s.v} className="clay-sm p-5 text-center">
