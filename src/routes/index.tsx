@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClayHero3D } from "@/components/ClayHero3D";
 import { TiltCard } from "@/components/TiltCard";
-import { Github, Linkedin, Mail, ArrowRight, Code2, Sparkles, Rocket, Zap, User, Bot } from "lucide-react";
+import { Github, ArrowRight, MessageCircle, User, Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
