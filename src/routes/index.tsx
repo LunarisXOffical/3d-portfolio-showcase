@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClayHero3D } from "@/components/ClayHero3D";
 import { TiltCard } from "@/components/TiltCard";
-import { Github, Linkedin, Mail, ArrowRight, Code2, Sparkles, Rocket, Zap, User, Bot } from "lucide-react";
+import { Github, ArrowRight, MessageCircle, User, Bot } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,25 +31,6 @@ const projects = [
     tags: ["CRDT", "IndexedDB", "React"],
     color: "var(--clay-mint)",
   },
-  {
-    title: "Orbit UI Kit",
-    desc: "An open-source claymorphism component library used by 3k+ devs.",
-    tags: ["TypeScript", "Tailwind", "Storybook"],
-    color: "var(--clay-sky)",
-  },
-  {
-    title: "Lumen API",
-    desc: "Type-safe RPC framework with sub-millisecond serverless cold starts.",
-    tags: ["Edge", "tRPC", "Rust"],
-    color: "var(--clay-lavender)",
-  },
-];
-
-const stack = [
-  { icon: Code2, label: "Frontend", items: ["React", "TypeScript", "Tailwind", "Three.js"] },
-  { icon: Rocket, label: "Backend", items: ["Node", "Postgres", "Edge functions", "Redis"] },
-  { icon: Sparkles, label: "Design", items: ["Figma", "Motion", "Design systems", "3D"] },
-  { icon: Zap, label: "Tooling", items: ["Vite", "Bun", "Docker", "GitHub Actions"] },
 ];
 
 const languages = [
@@ -216,28 +197,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Toolkit grid (kept) */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stack.map(({ icon: Icon, label, items }, i) => (
-            <div key={label} className="clay-sm p-6 transition hover:-translate-y-1">
-              <div
-                className="mb-5 grid h-14 w-14 place-items-center rounded-2xl"
-                style={{
-                  background: ["var(--clay-pink)", "var(--clay-mint)", "var(--clay-lavender)", "var(--clay-butter)"][i],
-                  boxShadow: "inset -3px -3px 6px rgba(0,0,0,0.15), inset 3px 3px 6px rgba(255,255,255,0.5)",
-                }}
-              >
-                <Icon className="h-6 w-6 text-foreground/80" />
-              </div>
-              <h3 className="mb-2 text-lg font-bold">{label}</h3>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                {items.map((it) => (
-                  <li key={it}>• {it}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* ABOUT */}
@@ -257,7 +216,7 @@ function Index() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
                 { k: "3", v: "Core languages" },
-                { k: "20+", v: "Projects shipped" },
+                { k: "3", v: "Projects completed" },
                 { k: "∞", v: "Ideas in queue" },
               ].map((s) => (
                 <div key={s.v} className="clay-sm p-5 text-center">
@@ -278,20 +237,23 @@ function Index() {
           I'm taking on a couple of new projects. Drop a line and tell me what you're cooking.
         </p>
         <a
-          href="mailto:nakhunxu@gmail.com"
+          href="https://discord.gg/lovable-dev"
+          target="_blank"
+          rel="noreferrer"
           className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-5 text-lg font-semibold text-primary-foreground shadow-[var(--shadow-glow),inset_-3px_-3px_6px_rgba(0,0,0,0.2),inset_3px_3px_6px_rgba(255,255,255,0.35)] transition-transform hover:scale-105"
         >
-          <Mail className="h-5 w-5" /> nakhunxu@gmail.com
+          <MessageCircle className="h-5 w-5" /> Join my Discord server
         </a>
         <div className="mt-10 flex items-center justify-center gap-4">
           {[
             { Icon: Github, href: "https://github.com", label: "GitHub" },
-            { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { Icon: Mail, href: "mailto:nakhunxu@gmail.com", label: "Email" },
+            { Icon: MessageCircle, href: "https://discord.gg/lovable-dev", label: "Discord" },
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
               href={href}
+              target="_blank"
+              rel="noreferrer"
               aria-label={label}
               className="grid h-12 w-12 place-items-center rounded-full clay-sm transition hover:-translate-y-1 hover:text-primary"
             >
