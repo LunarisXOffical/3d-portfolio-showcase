@@ -21,15 +21,15 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    title: "Nimbus Analytics",
-    desc: "Realtime dashboard with edge-streamed data and buttery 60fps charts.",
-    tags: ["Next.js", "WebSockets", "D3"],
+    title: "Fatty Hub",
+    desc: "Realtime roblox scripting hub. (closed)",
+    tags: ["Lua", "Python (for the bot.)"],
     color: "var(--clay-pink)",
   },
   {
-    title: "Pebble Notes",
-    desc: "Local-first note app with collaborative editing and offline sync.",
-    tags: ["CRDT", "IndexedDB", "React"],
+    title: "Discord Bot Making",
+    desc: "hmm!!!! i make moderation bots, and problably more.",
+    tags: ["Python", "JS", "TypeScript (not oftened)"],
     color: "var(--clay-mint)",
   },
 ];
