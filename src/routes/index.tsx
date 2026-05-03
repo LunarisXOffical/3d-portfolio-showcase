@@ -197,28 +197,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Toolkit grid (kept) */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stack.map(({ icon: Icon, label, items }, i) => (
-            <div key={label} className="clay-sm p-6 transition hover:-translate-y-1">
-              <div
-                className="mb-5 grid h-14 w-14 place-items-center rounded-2xl"
-                style={{
-                  background: ["var(--clay-pink)", "var(--clay-mint)", "var(--clay-lavender)", "var(--clay-butter)"][i],
-                  boxShadow: "inset -3px -3px 6px rgba(0,0,0,0.15), inset 3px 3px 6px rgba(255,255,255,0.5)",
-                }}
-              >
-                <Icon className="h-6 w-6 text-foreground/80" />
-              </div>
-              <h3 className="mb-2 text-lg font-bold">{label}</h3>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                {items.map((it) => (
-                  <li key={it}>• {it}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* ABOUT */}
