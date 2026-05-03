@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ClayHero3D } from "@/components/ClayHero3D";
 import { TiltCard } from "@/components/TiltCard";
 import { Github, ArrowRight, MessageCircle, User, Bot } from "lucide-react";
+import purpleImg from "@/assets/purple.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
