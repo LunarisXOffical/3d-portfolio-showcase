@@ -237,20 +237,23 @@ function Index() {
           I'm taking on a couple of new projects. Drop a line and tell me what you're cooking.
         </p>
         <a
-          href="mailto:nakhunxu@gmail.com"
+          href="https://discord.gg/lovable-dev"
+          target="_blank"
+          rel="noreferrer"
           className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-5 text-lg font-semibold text-primary-foreground shadow-[var(--shadow-glow),inset_-3px_-3px_6px_rgba(0,0,0,0.2),inset_3px_3px_6px_rgba(255,255,255,0.35)] transition-transform hover:scale-105"
         >
-          <Mail className="h-5 w-5" /> nakhunxu@gmail.com
+          <MessageCircle className="h-5 w-5" /> Join my Discord server
         </a>
         <div className="mt-10 flex items-center justify-center gap-4">
           {[
             { Icon: Github, href: "https://github.com", label: "GitHub" },
-            { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { Icon: Mail, href: "mailto:nakhunxu@gmail.com", label: "Email" },
+            { Icon: MessageCircle, href: "https://discord.gg/lovable-dev", label: "Discord" },
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
               href={href}
+              target="_blank"
+              rel="noreferrer"
               aria-label={label}
               className="grid h-12 w-12 place-items-center rounded-full clay-sm transition hover:-translate-y-1 hover:text-primary"
             >
