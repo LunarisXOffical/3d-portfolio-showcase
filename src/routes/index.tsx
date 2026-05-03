@@ -31,25 +31,6 @@ const projects = [
     tags: ["CRDT", "IndexedDB", "React"],
     color: "var(--clay-mint)",
   },
-  {
-    title: "Orbit UI Kit",
-    desc: "An open-source claymorphism component library used by 3k+ devs.",
-    tags: ["TypeScript", "Tailwind", "Storybook"],
-    color: "var(--clay-sky)",
-  },
-  {
-    title: "Lumen API",
-    desc: "Type-safe RPC framework with sub-millisecond serverless cold starts.",
-    tags: ["Edge", "tRPC", "Rust"],
-    color: "var(--clay-lavender)",
-  },
-];
-
-const stack = [
-  { icon: Code2, label: "Frontend", items: ["React", "TypeScript", "Tailwind", "Three.js"] },
-  { icon: Rocket, label: "Backend", items: ["Node", "Postgres", "Edge functions", "Redis"] },
-  { icon: Sparkles, label: "Design", items: ["Figma", "Motion", "Design systems", "3D"] },
-  { icon: Zap, label: "Tooling", items: ["Vite", "Bun", "Docker", "GitHub Actions"] },
 ];
 
 const languages = [
