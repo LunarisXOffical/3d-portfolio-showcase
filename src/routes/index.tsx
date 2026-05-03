@@ -155,19 +155,13 @@ function Index() {
         </div>
 
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.3fr]">
-          {/* Image placeholder */}
+          {/* Profile image */}
           <div className="clay mx-auto aspect-square w-full max-w-sm p-4">
-            <div className="grid h-full w-full place-items-center rounded-3xl border-2 border-dashed border-primary/40 bg-gradient-to-br from-primary/10 to-accent/10 text-center">
-              <div className="px-6">
-                <div className="mx-auto mb-3 grid h-14 w-14 place-items-center rounded-2xl bg-primary/20 text-primary">
-                  <User className="h-7 w-7" />
-                </div>
-                <p className="font-bold">Your photo here</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Replace this placeholder with an image of you (drop one in <code>src/assets</code> and import it).
-                </p>
-              </div>
-            </div>
+            <img
+              src={purpleImg}
+              alt="Nakhun"
+              className="h-full w-full rounded-3xl object-cover"
+            />
           </div>
 
           {/* Language progress bars */}
