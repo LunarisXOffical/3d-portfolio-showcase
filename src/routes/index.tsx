@@ -232,7 +232,7 @@ function Index() {
           I'm taking on a couple of new projects. Drop a line and tell me what you're cooking.
         </p>
         <a
-          href="https://discord.gg/lovable-dev"
+          href="https://discord.gg/C9Em7m5vhE"
           target="_blank"
           rel="noreferrer"
           className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-5 text-lg font-semibold text-primary-foreground shadow-[var(--shadow-glow),inset_-3px_-3px_6px_rgba(0,0,0,0.2),inset_3px_3px_6px_rgba(255,255,255,0.35)] transition-transform hover:scale-105"
@@ -242,7 +242,7 @@ function Index() {
         <div className="mt-10 flex items-center justify-center gap-4">
           {[
             { Icon: Github, href: "https://github.com", label: "GitHub" },
-            { Icon: MessageCircle, href: "https://discord.gg/lovable-dev", label: "Discord" },
+            { Icon: MessageCircle, href: "https://discord.gg/C9Em7m5vhE", label: "Discord" },
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
